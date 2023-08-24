@@ -30,31 +30,43 @@ final class GraphQLURLQueryBuilder {
         return self
     }
     
-    func add(operationName: String = "GetStores") {
+    func add(operationName: String = "GetStores") -> Self {
         body["operationName"] = operationName
+        
+        return self
     }
     
     func build() -> [String: Any] {
+        
+//        let data = try! JSONSerialization.data(withJSONObject: body)
+        let data = (body["query"] as! String).data(using: .utf8)!
+        let hash = sha256(data: data)
+
         body["extensions"] = [
             "persistedQuery":
                 [
-                    "version": "1",
-                    "headers": ["Accept-Language": "nl-NL"]
+                    "headers": [
+                        "Accept-Language": "nl-NL"
+                    ],
+                    "sha256Hash": hash,
+                    "version": 1,
                 ]
         ]
+//
+//        var sha = [String: Any]()
+//        sha["extensions"] = [
+//            "persistedQuery": [
+//                "sha256Hash": hash
+//            ]
+//        ]
+
+//        let mergedBody = body.merging(sha) { current, _ in
+//            current
+//        }
+//
+        print(body)
         
-        let data = try! JSONSerialization.data(withJSONObject: body)
-        let hash = sha256(data: data)
-        
-        var sha = [String: Any]()
-        sha["extensions"] = [
-            "persistedQuery": [
-                "sha256Hash": hash
-            ]
-        ]
-        return body.merging(sha) { current, _ in
-            current
-        }
+        return body
     }
     
     func sha256(data: Data) -> String {
@@ -84,7 +96,7 @@ final class GraphQLClientImp: GraphQLClient {
                 return URLQueryItem(name: $0.key, value: stringValue)
             }
             print(params)
-            let data = try! JSONSerialization.data(withJSONObject: params)
+            let data = try! JSONSerialization.data(withJSONObject: $0.value)
             let stringValue = String(data: data, encoding: .utf8)
             print(stringValue)
             return URLQueryItem(name: $0.key, value: stringValue)

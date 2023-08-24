@@ -8,14 +8,51 @@
 import Foundation
 
 let fragment = """
-fragment storeInfoFields on StoreV2 { id name address { street } openingDays { dayName description closed openingHour { openFrom openUntil } } }
-"""
+    fragment storeInfoFields on StoreV2 {
+      __typename
+      id
+      name
+      address {
+        __typename
+        street
+        houseNumber
+        houseNumberExtra
+        postalCode
+        city
+      }
+      openingDays {
+        __typename
+        dayName
+        description
+        closed
+        openingHour {
+          __typename
+          openFrom
+          openUntil
+        }
+      }
+    }
+    """
 
 func GetStoresQuery(place: String) -> [String: Any] {
-    let query = """
-      StoreSearchV2($input: SearchInput) { storeSearchV2(input: $input) { ...storeInfoFields } } \(fragment)
+    let query =
       """
-      let variables: [String : Any] = ["input": ["query": place]]
+      query GetStores($input: SearchInput) {
+        storeSearchV2(input: $input) {
+          __typename
+          ...storeInfoFields
+        }
+      }
+      \(fragment)
+      """
 
-      return ["query": query, "variables": variables]
+    let variables: [String : Any] =
+        [
+            "input": [
+                "query": place,
+                "analyticsTags": ["app-iOS"]
+            ]
+        ]
+
+     return ["query": query, "variables": variables]
 }

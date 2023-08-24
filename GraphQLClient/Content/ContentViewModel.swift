@@ -21,7 +21,10 @@ final class ContentViewModel: ObservableObject {
     
     func onAppear() async {
         do {
-            let body = GraphQLURLQueryBuilder().add(query: GetStoresQuery(place: "Borne")).build()
+            let body = GraphQLURLQueryBuilder()
+                .add(query: GetStoresQuery(place: "Borne"))
+                .add(operationName: "GetStores")
+                .build()
             
             let request = try client.makeRequest(params: body)
 //            let request = try client.makeRequest(body: GetStoresQuery(place: "borne"))
