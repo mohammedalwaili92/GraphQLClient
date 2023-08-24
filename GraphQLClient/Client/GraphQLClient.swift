@@ -24,9 +24,18 @@ final class RequestTokenHeaderProvider: RequestHeaderProviding {
 final class GraphQLURLQueryBuilder {
     
     var body: [String: Any] = [:]
+    var query: String = ""
+    var variables: [String: Any] = [:]
+    
+//    func add(query: [String: Any]) -> Self {
+//        body.merge(query) { current, _ in current }
+//        return self
+//    }
     
     func add(query: [String: Any]) -> Self {
-        body.merge(query) { current, _ in current }
+        self.query = query["query"] as! String
+        self.variables = query["variables"] as! [String: Any]
+        
         return self
     }
     
@@ -39,8 +48,12 @@ final class GraphQLURLQueryBuilder {
     func build() -> [String: Any] {
         
 //        let data = try! JSONSerialization.data(withJSONObject: body)
-        let data = (body["query"] as! String).data(using: .utf8)!
+//        let data = (body["query"] as! String).data(using: .utf8)!
+        let data = query.data(using: .utf8)!
         let hash = sha256(data: data)
+        
+//        body["query"] = query
+        body["variables"] = variables
 
         body["extensions"] = [
             "persistedQuery":
@@ -52,18 +65,7 @@ final class GraphQLURLQueryBuilder {
                     "version": 1,
                 ]
         ]
-//
-//        var sha = [String: Any]()
-//        sha["extensions"] = [
-//            "persistedQuery": [
-//                "sha256Hash": hash
-//            ]
-//        ]
 
-//        let mergedBody = body.merging(sha) { current, _ in
-//            current
-//        }
-//
         print(body)
         
         return body
