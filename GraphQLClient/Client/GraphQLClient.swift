@@ -35,7 +35,11 @@ final class GraphQLClientImp: GraphQLClient {
     private let baseURL = URL(string: "https://integration-gateway.action.com/api/gateway")!
     
     func fetch<T>(query: GraphQLQuery) async throws -> T where T : Decodable {
-        let session = URLSession.shared
+        let configuration = URLSessionConfiguration.default
+        configuration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+
+        // Create a URLSession with the configuration
+        let session = URLSession(configuration: configuration)
         let (data, _) = try await session.data(for: try makeRequest(for: query))
         
         if let failure = try? JSONDecoder().decode(GraphQLFailure.self, from: data),

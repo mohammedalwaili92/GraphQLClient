@@ -20,7 +20,7 @@ final class ContentViewModel: ObservableObject {
         self.client = client
     }
     
-    func onAppear() async {
+    func loadData() async {
         do {
 //            let stores: Stores = try await client.fetch(query: GetStoresQuery(place: "Oisterwijk"))
 //            self.stores = stores.data.storeSearchV2

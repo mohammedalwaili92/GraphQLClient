@@ -27,10 +27,15 @@ struct ContentView: View {
                 }
             }
         }
+        .refreshable {
+            Task { @MainActor in
+                await viewModel.loadData()
+            }
+        }
         .padding()
         .onAppear {
             Task { @MainActor in
-                await viewModel.onAppear()
+                await viewModel.loadData()
             }
         }
     }
