@@ -12,10 +12,15 @@ struct ContentView: View {
     @ObservedObject var viewModel: ContentViewModel
     
     var body: some View {
-        VStack {
-            ForEach(viewModel.stores) { store in
-                Text(store.name)
-                Text(store.address.street)
+        ScrollView {
+            VStack {
+                ForEach(Array(viewModel.stores.enumerated()), id: \.offset) { _, store in
+                    HStack {
+                        Text(store.name)
+                        Text(store.address.street)
+                    }
+                    
+                }
             }
         }
         .padding()

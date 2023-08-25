@@ -21,26 +21,10 @@ final class ContentViewModel: ObservableObject {
     
     func onAppear() async {
         do {
-            let body = GraphQLURLQueryBuilder()
-                .add(query: GetStoresQuery(place: "Borne"))
-                .add(operationName: "GetStores")
-                .build()
-            
-            let request = try client.makeRequest(params: body)
-//            let request = try client.makeRequest(body: GetStoresQuery(place: "borne"))
-            let stores: Stores = try await client.fetch(request: request)
+            let stores: Stores = try await client.fetch(query: GetStoresQuery(place: "Tilburg"))
             self.stores = stores.data.storeSearchV2
-            print(stores)
         } catch {
             print(error)
         }
-        
-//        do {
-//            let request = try client.makeRequest(body: UpdateUserDataMutation(firstName: "Mo2"))
-//            let result: UpdateUserDataResponse = try await client.fetch(request: request)
-//            print(result)
-//        } catch {
-//            print(error)
-//        }
     }
 }

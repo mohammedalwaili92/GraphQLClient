@@ -11,8 +11,7 @@ struct Address: Decodable {
     let street: String
 }
 
-struct StoreSearchV2: Decodable, Identifiable {
-    let id = UUID()
+struct StoreSearchV2: Decodable {
     let name: String
     let address: Address
 }
