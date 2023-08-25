@@ -8,29 +8,51 @@
 import XCTest
 @testable import GraphQLClient
 
+@MainActor
 final class GraphQLClientTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_loadData_updatesStores() async {
+        let components = makeSUT()
+        let data = StoresData(storeSearchV2: [
+            StoreSearchV2(name: "A city", address: Address(street: "a street"))
+        ])
+        components.client.fetchResponse = Stores(data: data)
+        
+        await components.sut.loadData()
+    
+        XCTAssertFalse(components.sut.stores.isEmpty)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    private func makeSUT() -> (sut: ContentViewModel,
+                               client: ClientMock) {
+        let client = ClientMock()
+        let sut = ContentViewModel(client: client)
+        
+        return (sut, client)
     }
+    
+}
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+final class ClientMock: GraphQLClient {
+    
+    init() { }
+    
+    var fetchError: Error?
+    var fetchResponse: (any Decodable)!
+    func fetch<T>(query: GraphQLQuery) async throws -> T where T : Decodable {
+        if let fetchError {
+            throw fetchError
         }
+        return fetchResponse as! T
     }
-
+    
+    var performError: Error?
+    var performResponse: (any Decodable)!
+    func perform<T>(mutation: GraphQLMutation) async throws -> T where T : Decodable {
+        if let performError {
+            throw performError
+        }
+        return performResponse as! T
+    }
+    
 }
