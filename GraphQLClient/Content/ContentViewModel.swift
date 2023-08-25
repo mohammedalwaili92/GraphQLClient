@@ -25,8 +25,11 @@ final class ContentViewModel: ObservableObject {
 //            let stores: Stores = try await client.fetch(query: GetStoresQuery(place: "Oisterwijk"))
 //            self.stores = stores.data.storeSearchV2
             
-            let weekdealsResponse: WeekdealsResponse = try await client.fetch(query: WeekdealsQuery())
-            self.products = weekdealsResponse.data.weekdeals.promotionProducts.map { $0.product }
+//            let weekdealsResponse: WeekdealsResponse = try await client.fetch(query: WeekdealsQuery())
+//            self.products = weekdealsResponse.data.weekdeals.promotionProducts.map { $0.product }
+            
+            let response: UpdateUserDataResponse = try await client.perform(mutation: UpdateUserDataMutation(firstName: "Mooooo"))
+            print(response.success)
         } catch {
             print(error)
         }

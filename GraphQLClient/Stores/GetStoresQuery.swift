@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct GetStoresQuery: GraphQLQuery {
-    
+struct GetStoresQuery: GraphQLQuery {    
     let operationName = "GetStores"
     var variables: [String : Any]?
     

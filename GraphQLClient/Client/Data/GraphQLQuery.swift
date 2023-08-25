@@ -8,10 +8,8 @@
 import Foundation
 import CryptoKit
 
-protocol GraphQLQuery {
-    var operationName: String { get }
+protocol GraphQLQuery: GraphQLOperation {
     var query: String { get }
-    var variables: [String: Any]? { get }
     var hash: String { get }
 }
 

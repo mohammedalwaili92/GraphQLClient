@@ -13,6 +13,13 @@
 		BD4C56DD2A98B1D800F962AE /* GraphQLURLQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56DC2A98B1D800F962AE /* GraphQLURLQueryBuilder.swift */; };
 		BD4C56E02A98B40300F962AE /* WeekdealsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56DF2A98B40300F962AE /* WeekdealsQuery.swift */; };
 		BD4C56E22A98B4AB00F962AE /* Weekdeals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56E12A98B4AB00F962AE /* Weekdeals.swift */; };
+		BD4C56E42A98E42D00F962AE /* GraphQLMutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56E32A98E42D00F962AE /* GraphQLMutation.swift */; };
+		BD4C56E72A98E52F00F962AE /* GraphQLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56E62A98E52F00F962AE /* GraphQLOperation.swift */; };
+		BD4C56E92A9906D800F962AE /* GraphQLFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56E82A9906D800F962AE /* GraphQLFailure.swift */; };
+		BD4C56F12A990A0E00F962AE /* GraphQLRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56F02A990A0E00F962AE /* GraphQLRequestInterceptor.swift */; };
+		BD4C56F32A990A6000F962AE /* GraphQLTokenRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56F22A990A6000F962AE /* GraphQLTokenRequestInterceptor.swift */; };
+		BD4C56F52A990BF800F962AE /* GraphQLDefaultRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56F42A990BF800F962AE /* GraphQLDefaultRequestInterceptor.swift */; };
+		BD4C56F72A990E0C00F962AE /* UpdateUserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56F62A990E0C00F962AE /* UpdateUserDataResponse.swift */; };
 		BDD0C8782A9626D8002ADAA5 /* GraphQLClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD0C8772A9626D8002ADAA5 /* GraphQLClientApp.swift */; };
 		BDD0C87A2A9626D8002ADAA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD0C8792A9626D8002ADAA5 /* ContentView.swift */; };
 		BDD0C87C2A9626D9002ADAA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD0C87B2A9626D9002ADAA5 /* Assets.xcassets */; };
@@ -51,6 +58,13 @@
 		BD4C56DC2A98B1D800F962AE /* GraphQLURLQueryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLURLQueryBuilder.swift; sourceTree = "<group>"; };
 		BD4C56DF2A98B40300F962AE /* WeekdealsQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdealsQuery.swift; sourceTree = "<group>"; };
 		BD4C56E12A98B4AB00F962AE /* Weekdeals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekdeals.swift; sourceTree = "<group>"; };
+		BD4C56E32A98E42D00F962AE /* GraphQLMutation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLMutation.swift; sourceTree = "<group>"; };
+		BD4C56E62A98E52F00F962AE /* GraphQLOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLOperation.swift; sourceTree = "<group>"; };
+		BD4C56E82A9906D800F962AE /* GraphQLFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLFailure.swift; sourceTree = "<group>"; };
+		BD4C56F02A990A0E00F962AE /* GraphQLRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRequestInterceptor.swift; sourceTree = "<group>"; };
+		BD4C56F22A990A6000F962AE /* GraphQLTokenRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLTokenRequestInterceptor.swift; sourceTree = "<group>"; };
+		BD4C56F42A990BF800F962AE /* GraphQLDefaultRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLDefaultRequestInterceptor.swift; sourceTree = "<group>"; };
+		BD4C56F62A990E0C00F962AE /* UpdateUserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserDataResponse.swift; sourceTree = "<group>"; };
 		BDD0C8742A9626D8002ADAA5 /* GraphQLClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphQLClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD0C8772A9626D8002ADAA5 /* GraphQLClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClientApp.swift; sourceTree = "<group>"; };
 		BDD0C8792A9626D8002ADAA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +116,27 @@
 			path = Weekdeals;
 			sourceTree = "<group>";
 		};
+		BD4C56E52A98E50800F962AE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BD4C56D62A98A64600F962AE /* GraphQLQuery.swift */,
+				BD4C56E32A98E42D00F962AE /* GraphQLMutation.swift */,
+				BD4C56D82A98A8C300F962AE /* GraphQLFragment.swift */,
+				BD4C56E62A98E52F00F962AE /* GraphQLOperation.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BD4C56EF2A9909F200F962AE /* Interceptors */ = {
+			isa = PBXGroup;
+			children = (
+				BD4C56F02A990A0E00F962AE /* GraphQLRequestInterceptor.swift */,
+				BD4C56F22A990A6000F962AE /* GraphQLTokenRequestInterceptor.swift */,
+				BD4C56F42A990BF800F962AE /* GraphQLDefaultRequestInterceptor.swift */,
+			);
+			path = Interceptors;
+			sourceTree = "<group>";
+		};
 		BDD0C86B2A9626D8002ADAA5 = {
 			isa = PBXGroup;
 			children = (
@@ -125,10 +160,10 @@
 		BDD0C8762A9626D8002ADAA5 /* GraphQLClient */ = {
 			isa = PBXGroup;
 			children = (
+				BDD0C8A42A964662002ADAA5 /* Stores */,
 				BD4C56DE2A98B3F900F962AE /* Weekdeals */,
 				BDD0C8AC2A9646F3002ADAA5 /* UpdateUserData */,
 				BDD0C8A72A96468E002ADAA5 /* Content */,
-				BDD0C8A42A964662002ADAA5 /* Stores */,
 				BDD0C8A12A9626F0002ADAA5 /* Client */,
 				BDD0C8772A9626D8002ADAA5 /* GraphQLClientApp.swift */,
 				BDD0C87B2A9626D9002ADAA5 /* Assets.xcassets */,
@@ -165,10 +200,11 @@
 		BDD0C8A12A9626F0002ADAA5 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				BD4C56EF2A9909F200F962AE /* Interceptors */,
+				BD4C56E52A98E50800F962AE /* Data */,
 				BDD0C8A22A9626FC002ADAA5 /* GraphQLClient.swift */,
-				BD4C56D62A98A64600F962AE /* GraphQLQuery.swift */,
-				BD4C56D82A98A8C300F962AE /* GraphQLFragment.swift */,
 				BD4C56DC2A98B1D800F962AE /* GraphQLURLQueryBuilder.swift */,
+				BD4C56E82A9906D800F962AE /* GraphQLFailure.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -196,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				BDD0C8AD2A964700002ADAA5 /* UpdateUserData.swift */,
+				BD4C56F62A990E0C00F962AE /* UpdateUserDataResponse.swift */,
 			);
 			path = UpdateUserData;
 			sourceTree = "<group>";
@@ -330,18 +367,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD4C56F12A990A0E00F962AE /* GraphQLRequestInterceptor.swift in Sources */,
+				BD4C56F32A990A6000F962AE /* GraphQLTokenRequestInterceptor.swift in Sources */,
 				BDD0C8A32A9626FC002ADAA5 /* GraphQLClient.swift in Sources */,
 				BD4C56E22A98B4AB00F962AE /* Weekdeals.swift in Sources */,
 				BD4C56D92A98A8C300F962AE /* GraphQLFragment.swift in Sources */,
 				BD4C56DB2A98A95200F962AE /* StoreInfoFieldsFragment.swift in Sources */,
+				BD4C56F72A990E0C00F962AE /* UpdateUserDataResponse.swift in Sources */,
 				BDD0C87A2A9626D8002ADAA5 /* ContentView.swift in Sources */,
 				BD4C56D72A98A64600F962AE /* GraphQLQuery.swift in Sources */,
+				BD4C56E92A9906D800F962AE /* GraphQLFailure.swift in Sources */,
 				BDD0C8782A9626D8002ADAA5 /* GraphQLClientApp.swift in Sources */,
 				BD4C56E02A98B40300F962AE /* WeekdealsQuery.swift in Sources */,
+				BD4C56F52A990BF800F962AE /* GraphQLDefaultRequestInterceptor.swift in Sources */,
+				BD4C56E42A98E42D00F962AE /* GraphQLMutation.swift in Sources */,
 				BDD0C8AE2A964700002ADAA5 /* UpdateUserData.swift in Sources */,
 				BDD0C8AB2A9646BC002ADAA5 /* GetStoresQuery.swift in Sources */,
 				BDD0C8A62A964672002ADAA5 /* Stores.swift in Sources */,
 				BD4C56DD2A98B1D800F962AE /* GraphQLURLQueryBuilder.swift in Sources */,
+				BD4C56E72A98E52F00F962AE /* GraphQLOperation.swift in Sources */,
 				BDD0C8A92A964699002ADAA5 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
