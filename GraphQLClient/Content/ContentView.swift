@@ -21,6 +21,10 @@ struct ContentView: View {
                     }
                     
                 }
+                
+                ForEach(Array(viewModel.products.enumerated()), id: \.offset) { _, product in
+                    Text(product.brand ?? "")
+                }
             }
         }
         .padding()

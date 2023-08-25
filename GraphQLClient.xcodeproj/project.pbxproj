@@ -11,6 +11,8 @@
 		BD4C56D92A98A8C300F962AE /* GraphQLFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56D82A98A8C300F962AE /* GraphQLFragment.swift */; };
 		BD4C56DB2A98A95200F962AE /* StoreInfoFieldsFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56DA2A98A95200F962AE /* StoreInfoFieldsFragment.swift */; };
 		BD4C56DD2A98B1D800F962AE /* GraphQLURLQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56DC2A98B1D800F962AE /* GraphQLURLQueryBuilder.swift */; };
+		BD4C56E02A98B40300F962AE /* WeekdealsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56DF2A98B40300F962AE /* WeekdealsQuery.swift */; };
+		BD4C56E22A98B4AB00F962AE /* Weekdeals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C56E12A98B4AB00F962AE /* Weekdeals.swift */; };
 		BDD0C8782A9626D8002ADAA5 /* GraphQLClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD0C8772A9626D8002ADAA5 /* GraphQLClientApp.swift */; };
 		BDD0C87A2A9626D8002ADAA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD0C8792A9626D8002ADAA5 /* ContentView.swift */; };
 		BDD0C87C2A9626D9002ADAA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD0C87B2A9626D9002ADAA5 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		BD4C56D82A98A8C300F962AE /* GraphQLFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLFragment.swift; sourceTree = "<group>"; };
 		BD4C56DA2A98A95200F962AE /* StoreInfoFieldsFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoFieldsFragment.swift; sourceTree = "<group>"; };
 		BD4C56DC2A98B1D800F962AE /* GraphQLURLQueryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLURLQueryBuilder.swift; sourceTree = "<group>"; };
+		BD4C56DF2A98B40300F962AE /* WeekdealsQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdealsQuery.swift; sourceTree = "<group>"; };
+		BD4C56E12A98B4AB00F962AE /* Weekdeals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekdeals.swift; sourceTree = "<group>"; };
 		BDD0C8742A9626D8002ADAA5 /* GraphQLClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphQLClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD0C8772A9626D8002ADAA5 /* GraphQLClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClientApp.swift; sourceTree = "<group>"; };
 		BDD0C8792A9626D8002ADAA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD4C56DE2A98B3F900F962AE /* Weekdeals */ = {
+			isa = PBXGroup;
+			children = (
+				BD4C56DF2A98B40300F962AE /* WeekdealsQuery.swift */,
+				BD4C56E12A98B4AB00F962AE /* Weekdeals.swift */,
+			);
+			path = Weekdeals;
+			sourceTree = "<group>";
+		};
 		BDD0C86B2A9626D8002ADAA5 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +125,7 @@
 		BDD0C8762A9626D8002ADAA5 /* GraphQLClient */ = {
 			isa = PBXGroup;
 			children = (
+				BD4C56DE2A98B3F900F962AE /* Weekdeals */,
 				BDD0C8AC2A9646F3002ADAA5 /* UpdateUserData */,
 				BDD0C8A72A96468E002ADAA5 /* Content */,
 				BDD0C8A42A964662002ADAA5 /* Stores */,
@@ -317,11 +331,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD0C8A32A9626FC002ADAA5 /* GraphQLClient.swift in Sources */,
+				BD4C56E22A98B4AB00F962AE /* Weekdeals.swift in Sources */,
 				BD4C56D92A98A8C300F962AE /* GraphQLFragment.swift in Sources */,
 				BD4C56DB2A98A95200F962AE /* StoreInfoFieldsFragment.swift in Sources */,
 				BDD0C87A2A9626D8002ADAA5 /* ContentView.swift in Sources */,
 				BD4C56D72A98A64600F962AE /* GraphQLQuery.swift in Sources */,
 				BDD0C8782A9626D8002ADAA5 /* GraphQLClientApp.swift in Sources */,
+				BD4C56E02A98B40300F962AE /* WeekdealsQuery.swift in Sources */,
 				BDD0C8AE2A964700002ADAA5 /* UpdateUserData.swift in Sources */,
 				BDD0C8AB2A9646BC002ADAA5 /* GetStoresQuery.swift in Sources */,
 				BDD0C8A62A964672002ADAA5 /* Stores.swift in Sources */,

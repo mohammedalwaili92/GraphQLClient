@@ -17,6 +17,19 @@ enum GraphQLClientError: Error {
     case invalidArguments
 }
 
+struct GraphQLErrorExtensions: Decodable {
+    let code: String
+}
+
+struct GraphQLError: Decodable {
+    let message: String
+    let extensions: GraphQLErrorExtensions
+}
+
+struct GraphQLFailure: Decodable {
+    let errors: [GraphQLError]
+}
+
 final class GraphQLClientImp: GraphQLClient {
     
     private let baseURL = URL(string: "https://integration-gateway.action.com/api/gateway")!
@@ -24,6 +37,14 @@ final class GraphQLClientImp: GraphQLClient {
     func fetch<T>(query: GraphQLQuery) async throws -> T where T : Decodable {
         let session = URLSession.shared
         let (data, _) = try await session.data(for: try makeRequest(for: query))
+        
+        if let failure = try? JSONDecoder().decode(GraphQLFailure.self, from: data),
+           failure.errors.contains(where: { $0.message == "PersistedQueryNotFound" }) {
+            let (data, _) = try await session.data(for: try makeRequest(for: query, includeQuery: true))
+            print(String(data: data, encoding: .utf8)!)
+            return try JSONDecoder().decode(T.self, from: data)
+        }
+        
         print(String(data: data, encoding: .utf8)!)
         return try JSONDecoder().decode(T.self, from: data)
     }
