@@ -43,6 +43,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ContentViewModel(client: GraphQLClientImp()))
+        ContentView(viewModel: ContentViewModel(client: ActionGraphQLClient()))
     }
 }

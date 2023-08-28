@@ -24,7 +24,7 @@ private let graphQLInterceptors: [GraphQLRequestInterceptor] = [
     GraphQLDefaultRequestInterceptor()
 ]
 
-final class GraphQLClientImp: GraphQLClient {
+final class ActionGraphQLClient: GraphQLClient {
     
     private let baseURL: URL
     private let interceptors: [GraphQLRequestInterceptor]
@@ -56,7 +56,7 @@ final class GraphQLClientImp: GraphQLClient {
     }
 }
 
-private extension GraphQLClientImp {
+private extension ActionGraphQLClient {
     
     func makeRequest(for query: GraphQLQuery, includeQuery: Bool = false) throws -> URLRequest {
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)!

@@ -11,7 +11,7 @@ import SwiftUI
 struct GraphQLClientApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: .init(client: GraphQLClientImp()))
+            ContentView(viewModel: .init(client: ActionGraphQLClient()))
         }
     }
 }
